@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>おみくじ</title>
+</head>
+
+<body>
+  <header>
+    <h1>おみくじ</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li id="pull">おみくじを引く</li>
+    </ul>
+    <p id="echo">結果は？</p>
+  </main>
+
+  <footer>フッター</footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    // ここに処理を追加
+    // 乱数を生成する関数(min~maxの乱数を生成する)
+    function getRandom(min, max) {
+      const random = Math.floor(Math.random() * (max + 1 - min)) + min;
+      return random;
+    }
+    const result = getRandom(1, 6);
+
+    $("#pull").on("click", function () {
+      if (result === 1) {
+        $("#echo").text("大吉");
+      } else if (result === 2) {
+        $("#echo").text("中吉");
+      } else if (result === 3) {
+        $("#echo").text("小吉");
+      } else if (result === 4) {
+        $("#echo").text("吉");
+      } else if (result === 5) {
+        $("#echo").text("凶");
+      } else if (result === 6) {
+        $("#echo").text("大凶");
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>

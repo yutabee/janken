@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>じゃんけん</title>
+</head>
+
+<body>
+  <header>
+    <h1>じゃんけん</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li id="gu_btn">グー</li>
+      <li id="cho_btn">チョキ</li>
+      <li id="par_btn">パー</li>
+    </ul>
+    <div id="com_hand">コンピュータの出した手は？</div>
+    <div id="result">結果は？</div>
+
+  </main>
+
+  <footer>フッター</footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+
+    const jankens = ["グー", "チョキ", "パー"]
+    let player_janken;
+    let cpu_janken;
+
+    $("#gu_btn").on("click", () => {
+      player_janken = jankens[0];
+      cpu_janken = jankens[Math.floor(Math.random() * 3)]
+      $("#com_hand").text(cpu_janken);
+
+      if (cpu_janken == "グー") {
+        $("#result").text("あいこです");
+      } else if (cpu_janken == "チョキ") {
+        $("#result").text("勝ちです");
+      } else if (cpu_janken == "パー") {
+        $("#result").text("負けです");
+      }
+    })
+
+    $("#cho_btn").on("click", () => {
+      player_janken = jankens[1];
+      cpu_janken = jankens[Math.floor(Math.random() * 3)]
+      $("#com_hand").text(cpu_janken);
+
+      if (cpu_janken == "グー") {
+        $("#result").text("負けです");
+      } else if (cpu_janken == "チョキ") {
+        $("#result").text("あいこです");
+      } else if (cpu_janken == "パー") {
+        $("#result").text("勝ちです");
+      }
+    })
+
+    $("#par_btn").on("click", () => {
+      player_janken = jankens[2];
+      cpu_janken = jankens[Math.floor(Math.random() * 3)]
+      $("#com_hand").text(cpu_janken);
+
+      if (cpu_janken == "グー") {
+        $("#result").text("勝ちです");
+      } else if (cpu_janken == "チョキ") {
+        $("#result").text("負けです");
+      } else if (cpu_janken == "パー") {
+        $("#result").text("あいこです");
+      }
+    })
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
